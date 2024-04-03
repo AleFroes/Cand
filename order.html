@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Pedido</title>
+    <!-- Adicionando folha de estilos do jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- Adicionando jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Adicionando biblioteca jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Adicionando folha de estilos personalizada -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(cake.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea,
+        form select,
+        form button,
+        form input[type="number"],
+        form input[type="date"],
+        form input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        form button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+
+        /* Adicionei estilos para tornar o botão do chatbot mais visível e acessível */
+        #chatbot-button {
+            position: fixed;
+            bottom: 8px;
+            right: 20px;
+            background-color: green;
+            color: darkblue;
+            padding: 8px 15px;
+            border-radius: 2.5px;
+            border: none;
+            cursor: pointer;
+            z-index: 9999;
+            transition: background-color 0.3s ease;
+            font-size: 12px;
+        }
+
+        #chatbot-button img {
+            width: 20px;
+            margin-right: 5px;
+            background-color: green;
+        }
+
+        #chatbot-button:hover {
+            background-color: lightgray;
+        }
+
+        /* Estilos para telas pequenas */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            section {
+                padding: 15px;
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea,
+            form select,
+            form button,
+            form input[type="number"],
+            form input[type="date"],
+            form input[type="time"] {
+                padding: 8px;
+            }
+        }
+
+        /* Estilos para telas médias */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            header {
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea,
+            form select,
+            form button,
+            form input[type="number"],
+            form input[type="date"],
+            form input[type="time"] {
+                padding: 10px;
+            }
+        }
+
+        /* Estilos para telas grandes */
+        @media screen and (min-width: 1025px) {
+            header {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            section {
+                padding: 30px;
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea,
+            form select,
+            form button,
+            form input[type="number"],
+            form input[type="date"],
+            form input[type="time"] {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Pedido (Faça seu Pedido)</h1>
+    </header>
+
+    <main>
+        <section id="pedidos">
+            <h2>Faça seu Pedido</h2>
+            <form id="order" action="review.html" method="get">
+
+                <!-- Opções de escolha do bolo -->
+                <h2>Vamos montar o bolo?</h2>
+                <label for="tipo">Tipo:</label>
+                <select id="tipo" onchange="calcularTotal()">
+                    <option value="bolo_andar,10">Bolo de Andar (Somente 2 andares) (R$10,00)</option>
+                    <option value="kit_1,150">Kit 1 (1,5kg + 25 brigadeiros + topo personalizado) (R$150,00)</option>
+                    <option value="kit_2,250">Kit 2 (2,5kg + 25 brigadeiros + 25 beijinhos + topo personalizado) (R$250,00)</option>
+                    <option value="tradicional,70">Tradicional (R$70,00)</option>
+                </select>
+                <label for="tipo_valor">Valor:</label>
+                <input type="number" id="tipo_valor" name="tipo_valor" /readonly>
+
+                <!-- Escolha da massa -->
+                <label for="massa">Massa:</label>
+                <select id="massa" onchange="calcularTotal()">
+                    <option value="baunilha">Baunilha (Massa Branca)</option>
+                    <option value="chocolate">Chocolate</option>
+                </select>
+                <label for="massa_valor">Valor:</label>
+                <label id="massa_valor_label">R$ 0.00</label>
+
+                <!-- Escolha do recheio -->
+                <label for="recheio">Recheio:</label>
+                <select id="recheio" onchange="calcularTotal()">
+                    <option value="abacaxi">Abacaxi</option>
+                    <option value="alpino">Alpino</option>
+                    <option value="brigadeiro">Brigadeiro 50% Cacau</option>
+                    <option value="brigadeiro_branco">Brigadeiro Branco</option>
+                    <option value="doce_leite">Doce de Leite</option>
+                    <option value="maracuja">Maracujá (Brigadeiro)</option>
+                    <option value="ninho_morango">Ninho com Morango</option>
+                    <option value="ninho_nutella">Ninho com Nutella</option>
+                    <option value="prestigio">Prestígio</option>
+                    <option value="surpresa_uva">Surpresa de Uva</option>
+                </select>
+                <label for="recheio_valor">Valor:</label>
+                <label id="recheio_valor_label">R$ 0.00</label>
+
+                <!-- Digitar a decoração -->
+                <label for="decoracao">Decoração:</label>
+                <input type="text" id="decoracao" name="decoracao" onchange="calcularTotal()" required>
+                <label for="decoracao_valor">Valor:</label>
+                <label id="decoracao_valor_label">R$ 0.00</label>
+
+                <!-- Digitar o peso -->
+                <label for="peso">Peso:</label>
+                <input type="number" id="peso" name="peso" onchange="calcularTotal()" required>
+
+                <!-- Seleção da data e hora da entrega -->
+                <h2>Qual o dia e hora da entrega? (Selecione abaixo)</h2>
+                <label for="data_entrega">Data da Entrega:</label>
+                <input type="date" id="data_entrega" name="data_entrega" onchange="calcularTotal()" required>
+                <label for="hora_entrega">Hora da Entrega:</label>
+                <input type="time" id="hora_entrega" name="hora_entrega" onchange="calcularTotal()" required>
+
+                <!-- Área para digitar uma mensagem adicional -->
+                <label for="mensagem">Mensagem: (descreva mais algum detalhe necessário)</label>
+                <textarea id="mensagem" name="mensagem" onchange="calcularTotal()" required></textarea>
+
+                <!-- Exibição do total do pedido -->
+                <label for="total">Total Pedido:</label>
+                <input type="text" id="total" name="total" readonly>
+
+                <!-- Botão para revisar pedido e pagamento -->
+                <button onclick="validarPedido()" type="button">Revisar Pedido e Pagar</button>
+
+            </form>
+        </section>
+    </main>
+
+    <!-- Botão para pedidos via chatbot -->
+    <button id="chatbot-button">
+        <img src="chatbot.gif" alt="Chatbot Icon"> <b>Pedir via Chatbot</b>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        function atualizarValor() {
+            // Obtém o select
+            var select = document.getElementById("tipo");
+            // Obtém o valor selecionado
+            var selectedOption = select.options[select.selectedIndex].value;
+            // Divide o valor selecionado para obter apenas o preço
+            var preco = selectedOption.split(',')[1];
+            // Atualiza o valor no input
+            document.getElementById("tipo_valor").value = "R$ " + preco;
+        }
+        // Chama a função para que o valor inicial seja exibido corretamente
+        atualizarValor();
+
+        // Função para calcular o total do pedido
+        function calcularTotal() {
+            var tipo = parseFloat(document.getElementById('tipo').value.split(',')[1]);
+            var massa = parseFloat(document.getElementById('massa').value);
+            var recheio = parseFloat(document.getElementById('recheio').value);
+            var decoracao = parseFloat(document.getElementById('decoracao_valor_label').innerText.split(' ')[1]);
+            var peso = parseFloat(document.getElementById('peso').value);
+            var total = tipo + massa + recheio + decoracao + peso;
+            document.getElementById('total').value = 'R$ ' + total.toFixed(2);
+        }
+  
+         function validarPedido() {
+        var tipo = document.getElementById('tipo').value;
+        var massa = document.getElementById('massa').value;
+        var recheio = document.getElementById('recheio').value;
+        var decoracao = document.getElementById('decoracao').value;
+        var peso = document.getElementById('peso').value;
+        var data_entrega = document.getElementById('data_entrega').value;
+        var hora_entrega = document.getElementById('hora_entrega').value;
+        var mensagem = document.getElementById('mensagem').value;
+
+        if (tipo === "" || massa === "" || recheio === "" || decoracao === "" || peso === "" || data_entrega === "" || hora_entrega === "" || mensagem === "") {
+            alert("Por favor, preencha todos os campos do formulário antes de prosseguir.");
+        } else {
+            window.location.href = "payment.html";
+        }
+    }
+
+        // Adicione aqui o script para abrir o chatbot quando o botão for clicado
+        document.getElementById("chatbot-button").addEventListener("click", function() {
+            // Adicione o código para abrir o chatbot aqui
+            alert("Abrir o chatbot...");
+        });
+    </script>
+</body>
+
+</html>

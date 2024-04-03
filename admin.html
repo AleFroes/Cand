@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Administrativa</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(cake.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .item {
+            display: inline-block;
+            margin-right: 20px;
+            vertical-align: top; /* Alinha os itens no topo */
+        }
+
+        .item a {
+            color: black; /* Define a cor do texto dos links como preto */
+            text-decoration: none; /* Remove a decoração do link */
+        }
+
+        .item img {
+            width: 50px; /* Reduzindo o tamanho das imagens */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .item p {
+            margin: 5px 0 0;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para telas pequenas */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            nav ul li {
+                margin-right: 10px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            section {
+                padding: 15px;
+            }
+        }
+
+        /* Estilos para telas médias */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            header {
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            nav ul li {
+                margin-right: 15px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+
+        /* Estilos para telas grandes */
+        @media screen and (min-width: 1025px) {
+            header {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            nav ul li {
+                margin-right: 20px;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            section {
+                padding: 30px;
+            }
+        }
+
+        /* The alert message box */
+        .alert {
+            padding: 20px;
+            background-color: #f44336; /* Red */
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        /* The close button */
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* When moving the mouse over the close button */
+        .closebtn:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>    
+  
+  <header>
+         
+    <h1> Área Administrativa</h1>
+        <br>
+        <nav>
+            <ul>
+                <li>
+                    <div class="item">
+                        <a href="accounting.html">
+                            <img src="accounting.png">
+                            <p>Contabilidade</p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="sales.html">
+                            <img src="sales.png">
+                            <p>Controle de Vendas</p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="stock.html">
+                            <img src="stock.png">
+                            <p>Controle de Estoque</p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="dash.html">
+                            <img src="dash.png">
+                            <p>Dashboard de Estoque</p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="recipes.html">
+                            <img src="recipes.png">
+                            <p>Receitas</p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="item" style="margin-right: 0;">
+                        <a href="#" onclick="executarAcoes()">
+                            <img src="exit.png">
+                            <p>Sair</p>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+      </br>
+    </header>
+
+    <main>
+        <section id="contabilidade">
+            <h2>Contabilidade</h2>
+            <p>Nesta área você pode acompanhar a saúde financeira da empresa</p>
+            <div class="item">
+                <a href="accounting.html">
+                    <img src="accounting.png">
+                    <p>Contabilidade</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="vendas">
+            <h2>Controle de Vendas</h2>
+            <p>Aqui através de tabelas e dashboards, você pode acompanhar suas vendas</p>
+            <div class="item">
+                <a href="sales.html">
+                    <img src="sales.png">
+                    <p>Venda</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="estoque">
+            <h2>Controle de Estoque</h2>
+            <p>O Controle de Estoque, auxilia o empreendedor a saber qual é o estoque real</p>
+            <div class="item">
+                <a href="stock.html">
+                    <img src="stock.png">
+                    <p>Controle de Estoque</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="dashboard">
+            <h2>Dashboard de Estoque</h2>
+            <p>Dashboard do estoque dá uma ideia mais visual da situação podendo agilizar a reposição de determinado item</p>
+            <div class="item">
+                <a href="dash.html">
+                    <img src="dash.png">
+                    <p>Dashboard do Estoque</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="receitas">
+            <h2>Receitas</h2>
+            <p>Nesta página você poderá inserir suas receitas</p>
+            <div class="item">
+                <a href="recipes.html">
+                    <img src="recipes.png">
+                    <p>Receitas</p>
+                </a>
+            </div>
+        </section>      
+        
+        <section id="precificacao">
+            <h2>Precificação</h2>
+            <p>Aqui você terá ideia do custo de produção de cada produto e a quanto vender</p>
+            <div class="item">
+                <a href="precificacao.html">
+                    <img src="price.png">
+                    <p>Precificação</p>
+                </a>
+            </div>
+        </section>
+    </main>
+    <script>
+        function executarAcoes() {
+            // Coloque aqui o código para executar as ações necessárias ao sair
+            alert("Executando ações ao sair...");
+        }
+    </script>
+</body>
+</html>

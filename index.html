@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confeitaria</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(cake.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para telas pequenas */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            nav ul li {
+                margin-right: 10px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            section {
+                padding: 15px;
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea {
+                padding: 8px;
+            }
+
+            form button {
+                padding: 8px 16px;
+            }
+        }
+
+        /* Estilos para telas médias */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            header {
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            nav ul li {
+                margin-right: 15px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            section {
+                padding: 20px;
+            }
+          
+            .carousel {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            width: 100%;
+            }
+
+            .carousel img {
+            flex: 0 0 auto;
+            width: 100%;
+            scroll-snap-align: start;
+            }
+          
+            .carousel img {
+                width: 30%; /* Ajuste o tamanho conforme desejado */
+                height: auto; /* Mantém a proporção original da imagem */
+                border-radius: 15px;
+                cursor: pointer;
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea {
+                padding: 10px;
+            }
+
+            form button {
+                padding: 10px 20px;
+            }
+        }
+
+        /* Estilos para telas grandes */
+        @media screen and (min-width: 1025px) {
+            header {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            nav ul li {
+                margin-right: 20px;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            section {
+                padding: 30px;
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea {
+                padding: 12px;
+            }
+
+            form button {
+                padding: 12px 24px;
+            }
+        }
+
+        /* The alert message box */
+        .alert {
+            padding: 20px;
+            background-color: #f44336; /* Red */
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        /* The close button */
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* When moving the mouse over the close button */
+        .closebtn:hover {
+            color: black;
+        }
+
+        /* Estilos omitidos para manter a concisão */
+        .value-explanation {
+            display: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cake {
+            width: 200px;
+            height: auto;
+            margin: 10px;
+            border: 1px solid #ccc;
+            display: inline-block;
+            position: relative;
+        }
+        .cake img {
+            width: 100%;
+            height: auto;
+        }
+        .flavor {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+        }
+        .cake:hover .flavor {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Confeitaria</h1>
+        <br>
+        <nav>
+            <ul>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#missao">Missão</a></li>
+                <li><a href="#valores">Valores</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="form.html">Cadastro e Pedido</a></li>
+                <li><a href="login.html">Acesso Restrito</a></li>
+            </ul>
+        </nav>
+        <br>
+    </header>
+
+    <main>
+        <section id="historia">
+            <h2>História</h2>
+            <p>A Confeitaria começou em uma pequena cozinha em 2005...</p>
+        </section>
+
+        <section id="missao">
+            <h2>Missão</h2>
+            <p>Nossa missão é criar bolos e doces deliciosos que encantem nossos clientes...</p>
+        </section>
+
+        <section id="valores">
+            <h2>Valores</h2><h9>(clique em cada palavra e conheça um pouco mais dos nossos valores</h9>
+            <ul>
+                <br>
+                <li id="qualidade">Qualidade</li>
+                <br>
+                <li id="comprometimento">Comprometimento</li>
+                <br>
+                <li id="criatividade">Criatividade</li>
+                <br>
+            </ul>
+            <div id="qualidade-explanation" class="value-explanation">Trabalhar com produtos de qualidade e entregar um trabalho de excelência e qualidade.</div>
+            <div id="comprometimento-explanation" class="value-explanation">Fazer sempre o melhor, cumprir prazos e promessas, e manter a excelência em todos os aspectos.</div>
+            <div id="criatividade-explanation" class="value-explanation">Fazer trabalhos inovadores e criativos, encantando os clientes e criando dias memoráveis.</div>
+        </section>
+
+        <section id="produtos">
+            <h2>Produtos</h2>
+            <p>Aqui vão algumas fotos de trabalhos realizados</p>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img src="cake1.jpg" alt="Bolo 1" data-type="Bolo" data-mass="200g" data-filling="Chocolate e Morango" data-decoration="Granulado e Morangos">
+                    <img src="cake2.jpg" alt="Bolo 2" data-type="Bolo" data-mass="180g" data-filling="Limão e Merengue" data-decoration="Raspas de Limão">
+                    <img src="cake3.jpg" alt="Bolo 3" data-type="Bolo" data-mass="220g" data-filling="Abacaxi e Coco" data-decoration="Cerejas e Coco Ralado">
+                    <img src="cake4.jpg" alt="Bolo 4" data-type="Bolo" data-mass="200g" data-filling="Chocolate e Morango" data-decoration="Granulado e Morangos">
+                    <img src="cake5.jpg" alt="Bolo 5" data-type="Bolo" data-mass="180g" data-filling="Limão e Merengue" data-decoration="Raspas de Limão">
+                    <img src="cake6.jpg" alt="Bolo 6" data-type="Bolo" data-mass="220g" data-filling="Abacaxi e Coco" data-decoration="Cerejas e Coco Ralado">
+                    <img src="cake7.jpg" alt="Bolo 7" data-type="Bolo" data-mass="200g" data-filling="Chocolate e Morango" data-decoration="Granulado e Morangos">
+                    <img src="cake8.jpg" alt="Bolo 8" data-type="Bolo" data-mass="180g" data-filling="Limão e Merengue" data-decoration="Raspas de Limão">
+                    <img src="cake9.jpg" alt="Bolo 9" data-type="Bolo" data-mass="220g" data-filling="Abacaxi e Coco" data-decoration="Cerejas e Coco Ralado">
+                    <img src="cake10.jpg" alt="Bolo 10" data-type="Bolo" data-mass="200g" data-filling="Chocolate e Morango" data-decoration="Granulado e Morangos">
+                    <img src="cake11.jpg" alt="Bolo 11" data-type="Bolo" data-mass="180g" data-filling="Limão e Merengue" data-decoration="Raspas de Limão">
+                    <img src="cake12.jpg" alt="Bolo 12" data-type="Bolo" data-mass="220g" data-filling="Abacaxi e Coco" data-decoration="Cerejas e Coco Ralado">
+                
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('qualidade').addEventListener('mouseover', function() {
+            document.getElementById('qualidade-explanation').style.display = 'block';
+        });
+
+        document.getElementById('qualidade').addEventListener('mouseout', function() {
+            document.getElementById('qualidade-explanation').style.display = 'none';
+        });
+        document.getElementById('comprometimento').addEventListener('mouseover', function() {
+            document.getElementById('comprometimento-explanation').style.display = 'block';
+        });
+
+        document.getElementById('comprometimento').addEventListener('mouseout', function() {
+            document.getElementById('comprometimento-explanation').style.display = 'none';
+        });
+
+        document.getElementById('criatividade').addEventListener('mouseover', function() {
+            document.getElementById('criatividade-explanation').style.display = 'block';
+        });
+
+        document.getElementById('criatividade').addEventListener('mouseout', function() {
+            document.getElementById('criatividade-explanation').style.display = 'none';
+        });
+
+        $(document).ready(function() {
+            $('.carousel img').click(function() {
+                var type = $(this).data('type');
+                var mass = $(this).data('mass');
+                var filling = $(this).data('filling');
+                var decoration = $(this).data('decoration');
+                
+                var confirmation = confirm('Você gosta do ' + type + '?\n\nDetalhes:\n- Massa: ' + mass + '\n- Recheio: ' + filling + '\n- Decoração: ' + decoration + '\n\nClique em "OK" para adicionar ao carrinho.');
+                
+                if (confirmation) {
+                    alert('O ' + type + ' foi adicionado ao carrinho!');
+                }
+            });
+        });
+
+
+      
+    </script>
+</body>
+</html>
