@@ -1,0 +1,17 @@
+name: Deploy JSON Server 
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Start JSON Server
+        run: npm start
+      
