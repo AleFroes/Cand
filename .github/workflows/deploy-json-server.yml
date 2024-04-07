@@ -1,17 +1,25 @@
-name: Deploy JSON Server 
+name: Deploy JSON Server
 
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
     steps:
       - name: Install Dependencies
         run: npm install
 
       - name: Start JSON Server
         run: npm start
-      
+
+notifications:
+  email:
+    recipients:
+      - projetoconfeitaria8@gmail.com
+    on_success: always
+    on_failure: always
