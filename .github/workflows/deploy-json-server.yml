@@ -17,9 +17,15 @@ jobs:
       - name: Start JSON Server
         run: npm start
 
-notifications:
-  email:
-    recipients:
-      - projetoconfeitaria8@gmail.com
-    on_success: always
-    on_failure: always
+      - name: Send Notification Email
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.projetoconfeitaria8@gmail.com }}
+          password: ${{ secrets.qwerty567@ }}
+          subject: Deploy Status
+          body: The deploy was ${{ job.status }}.
+          to: projetoconfeitaria8@gmail.com
+          from: GitHub Actions
