@@ -21,7 +21,10 @@ jobs:
         run: npm install
 
       - name: Start JSON Server
-        run: npm run start-json-server
+        run: |
+        cd src
+        npm install
+        npm run start-json-server
         env:
           PORT: ${{ secrets.PORT }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
