@@ -22,11 +22,10 @@ jobs:
 
       - name: Start JSON Server
         run: |
-        cd src
-        npm install
-        npm run start-json-server
-        env:
-          PORT: ${{ secrets.PORT }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          EMAIL: ${{ secrets.EMAIL }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+        npm install --prefix src
+        npm run start-json-server --prefix src
+    env:
+    PORT: ${{ secrets.PORT }}
+    DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    EMAIL: ${{ secrets.EMAIL }}
+    PASSWORD: ${{ secrets.PASSWORD }}
