@@ -1,0 +1,148 @@
+
+//form.html
+             body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.8)), url(img/cake.jpg);
+               background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea,
+        form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        form button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para telas pequenas */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            section {
+                padding: 15px;
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea,
+            form button {
+                padding: 8px;
+            }
+        }
+
+        /* Estilos para telas médias */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            header {
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea,
+            form button {
+                padding: 10px;
+            }
+        }
+
+        /* Estilos para telas grandes */
+        @media screen and (min-width: 1025px) {
+            header {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            section {
+                padding: 30px;
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form textarea,
+            form button {
+                padding: 12px;
+            }
+        }
+
+

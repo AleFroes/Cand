@@ -1,0 +1,194 @@
+//admin.html
+             body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(cake.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .item {
+            display: inline-block;
+            margin-right: 20px;
+            vertical-align: top; /* Alinha os itens no topo */
+        }
+
+        .item a {
+            color: black; /* Define a cor do texto dos links como preto */
+            text-decoration: none; /* Remove a decoração do link */
+        }
+
+        .item img {
+            width: 50px; /* Reduzindo o tamanho das imagens */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .item p {
+            margin: 5px 0 0;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para telas pequenas */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            nav ul li {
+                margin-right: 10px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            section {
+                padding: 15px;
+            }
+        }
+
+        /* Estilos para telas médias */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            header {
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            nav ul li {
+                margin-right: 15px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+
+        /* Estilos para telas grandes */
+        @media screen and (min-width: 1025px) {
+            header {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            nav ul li {
+                margin-right: 20px;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            section {
+                padding: 30px;
+            }
+        }
+
+        /* The alert message box */
+        .alert {
+            padding: 20px;
+            background-color: #f44336; /* Red */
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        /* The close button */
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* When moving the mouse over the close button */
+        .closebtn:hover {
+            color: black;
+        }
+
+
+
