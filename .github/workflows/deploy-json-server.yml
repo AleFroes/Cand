@@ -23,6 +23,7 @@ jobs:
       - name: Start JSON Server
         run: npm run start-json-server
         env:
-          EMAIL: "projetoconfeitaria8@gmail.com"
-          PASSWORD: "qwerty567@"
-
+          PORT: ${{ secrets.PORT }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
