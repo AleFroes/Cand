@@ -1,11 +1,10 @@
 
-//form.html
              body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.8)), url(img/cake.jpg);
-               background-size: cover;
+            background: linear-gradient(to bottom, pink, turquoise);
+            background-size: cover;
             background-position: center;
             position: relative;
         }
