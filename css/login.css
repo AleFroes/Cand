@@ -1,10 +1,10 @@
 //login.html
          body {
       font-family: Arial, sans-serif;
-      background-image:url(cake.jpg);
+      background: linear-gradient(to bottom, fuchsia, turquoise);
       background-size: cover;
       background-position: center;
-      position: relative
+      position: relative;
       margin: 0;
       padding: 0;
       display: flex;
