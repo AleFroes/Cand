@@ -8,34 +8,58 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/slideshow.css">
+
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+
     
 </head>
 <body>
-    <header>
-        <h1>Confeitaria</h1>
-        <br>
-        <nav>
-            <ul>
-                <li><a href="#historia">História</a></li>
-                <li><a href="#missao">Missão</a></li>
-                <li><a href="#valores">Valores</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="form.html">Cadastro e Pedido</a></li>
-                <li><a href="loginad.html">Acesso Restrito</a></li>
-            </ul>
-        </nav>
-        <br>
-    </header>
+    <input type="checkbox" id="sideC">
 
+    <div id="side">
+
+      <b><a href="form.html">Cadastre-se</a>
+      <a href="login.html">Faça seu Pedido</a>
+      <a href="loginad.html">Acesso Restrito</a>
+      <p>____________</p>
+      <a href="#historia">História</a>
+      <a href="#missao">Missão</a>
+      <a href="#valores">Valores</a>
+      <a href="#produtos">Trabalhos Anteriores</a></b>
+    </div>
+
+
+
+    <!-- (B) MAIN -->
+
+    <div id="main">
+
+      <label for="sideC" id="sideL">&#9776;</label>
+
+     
+    </div>
+
+  
     <main>
+         <section>
+            <div>
+                <h1 style="display: inline-block; margin-left: 80px;">Confeitaria</h1>
+            </div>
+        </section>
+        <br>
         <section id="historia">
             <h2>História</h2>
-            <p>A Confeitaria começou em uma pequena cozinha em 2005...</p>
+            <p>A Confeitaria começou em uma pequena cozinha em 2015, quando uma mãe resolveu que iria fazer bolo de aniversário para seus filhos. </p>
+            <p>Na época da pandemia, a ideia começou a ganhar corpo como uma renda extra. Fui fazendo cursos, aprendendo novas técnicas e me aperfeiçoando para levar aos clientes produtos de qualidade e criativos, algo que pudesse impressioná-los. </p>
+            <p>Minha jornada por diferentes áreas da economia me trouxe experiência, que unida ao sonho de fazer a diferença na vida das pessoas através da minha criatividade.</p>
+            <p>Na Confeitaria, não é apenas sobre vender doces; é sobre realizar sonhos. Nos dedicamos a entender os desejos e preferências de cada cliente, transformando suas ideias em criações deliciosas e memoráveis. Seja um bolo extravagante para um casamento ou bolos personalizados para uma festa de aniversário.</p>
+            <p>Com a combinação perfeita de criatividade, qualidade e competência, A Confeitaria não era apenas uma confeitaria, era um lugar onde os sonhos se tornavam realidade em forma de doces. E assim, a história de uma mulher determinada a realizar seu sonho inspira outros a fazerem o mesmo, um doce de cada vez.</p>
         </section>
 
         <section id="missao">
             <h2>Missão</h2>
-            <p>Nossa missão é criar bolos e doces deliciosos que encantem nossos clientes...</p>
+            <p>A missão da Confeitaria é transformar os momentos especiais da vida de seus clientes em experiências memoráveis através da magia da confeitaria. Combinando criatividade, qualidade e competência, buscamos superar as expectativas de nossos clientes, oferecendo produtos únicos e personalizados que reflitam seus desejos e celebrem seus momentos mais importantes. Nossa paixão pela excelência nos impulsiona a criar doces que não apenas encantam o paladar, mas também tocam o coração, tornando cada mordida uma lembrança inesquecível.</p>
         </section>
 
         <section id="valores">
@@ -49,76 +73,19 @@
                 <li id="criatividade">Criatividade</li>
                 <br>
             </ul>
-            <div id="qualidade-explanation" class="value-explanation">Trabalhar com produtos de qualidade e entregar um trabalho de excelência e qualidade.</div>
+            <div id="qualidade-explanation" class="value-explanation">Trabalhar com produtos de qualidade e entregar um trabalho de excelência.</div>
             <div id="comprometimento-explanation" class="value-explanation">Fazer sempre o melhor, cumprir prazos e promessas, e manter a excelência em todos os aspectos.</div>
             <div id="criatividade-explanation" class="value-explanation">Fazer trabalhos inovadores e criativos, encantando os clientes e criando dias memoráveis.</div>
         </section>
 
         <section id="produtos">
-            <h2>Produtos</h2>
-            <p>Aqui vão algumas fotos de trabalhos realizados</p>
-            <div class="carousel-container">
-                <div class="carousel">
-                    <img src="cake1.jpg" alt="Bolo 1" data-type="Bolo" data-mass="200g" data-filling="Chocolate e Morango" data-decoration="Granulado e Morangos">
-                    <img src="cake2.jpg" alt="Bolo 2" data-type="Bolo" data-mass="180g" data-filling="Limão e Merengue" data-decoration="Raspas de Limão">
-                    <img src="cake3.jpg" alt="Bolo 3" data-type="Bolo" data-mass="220g" data-filling="Abacaxi e Coco" data-decoration="Cerejas e Coco Ralado">
-                    <img src="cake4.jpg" alt="Bolo 4" data-type="Bolo" data-mass="200g" data-filling="Chocolate e Morango" data-decoration="Granulado e Morangos">
-                    <img src="cake5.jpg" alt="Bolo 5" data-type="Bolo" data-mass="180g" data-filling="Limão e Merengue" data-decoration="Raspas de Limão">
-                    <img src="cake6.jpg" alt="Bolo 6" data-type="Bolo" data-mass="220g" data-filling="Abacaxi e Coco" data-decoration="Cerejas e Coco Ralado">
-                    <img src="cake7.jpg" alt="Bolo 7" data-type="Bolo" data-mass="200g" data-filling="Chocolate e Morango" data-decoration="Granulado e Morangos">
-                    <img src="cake8.jpg" alt="Bolo 8" data-type="Bolo" data-mass="180g" data-filling="Limão e Merengue" data-decoration="Raspas de Limão">
-                    <img src="cake9.jpg" alt="Bolo 9" data-type="Bolo" data-mass="220g" data-filling="Abacaxi e Coco" data-decoration="Cerejas e Coco Ralado">
-                    <img src="cake10.jpg" alt="Bolo 10" data-type="Bolo" data-mass="200g" data-filling="Chocolate e Morango" data-decoration="Granulado e Morangos">
-                    <img src="cake11.jpg" alt="Bolo 11" data-type="Bolo" data-mass="180g" data-filling="Limão e Merengue" data-decoration="Raspas de Limão">
-                    <img src="cake12.jpg" alt="Bolo 12" data-type="Bolo" data-mass="220g" data-filling="Abacaxi e Coco" data-decoration="Cerejas e Coco Ralado">
-                
-                </div>
-            </div>
+            <h2>Trabalhos Anteriores</h2>
+            <p>Fotos de trabalhos realizados</p>
+            <div id="slideshow"></div>
         </section>
     </main>
+    <script src="js/slideshow.js"></script>
 
-    <script src="js/scripts.js"></script>
-    <script>
-        document.getElementById('qualidade').addEventListener('mouseover', function() {
-            document.getElementById('qualidade-explanation').style.display = 'block';
-        });
-
-        document.getElementById('qualidade').addEventListener('mouseout', function() {
-            document.getElementById('qualidade-explanation').style.display = 'none';
-        });
-        document.getElementById('comprometimento').addEventListener('mouseover', function() {
-            document.getElementById('comprometimento-explanation').style.display = 'block';
-        });
-
-        document.getElementById('comprometimento').addEventListener('mouseout', function() {
-            document.getElementById('comprometimento-explanation').style.display = 'none';
-        });
-
-        document.getElementById('criatividade').addEventListener('mouseover', function() {
-            document.getElementById('criatividade-explanation').style.display = 'block';
-        });
-
-        document.getElementById('criatividade').addEventListener('mouseout', function() {
-            document.getElementById('criatividade-explanation').style.display = 'none';
-        });
-
-        $(document).ready(function() {
-            $('.carousel img').click(function() {
-                var type = $(this).data('type');
-                var mass = $(this).data('mass');
-                var filling = $(this).data('filling');
-                var decoration = $(this).data('decoration');
-                
-                var confirmation = confirm('Você gosta do ' + type + '?\n\nDetalhes:\n- Massa: ' + mass + '\n- Recheio: ' + filling + '\n- Decoração: ' + decoration + '\n\nClique em "OK" para adicionar ao carrinho.');
-                
-                if (confirmation) {
-                    alert('O ' + type + ' foi adicionado ao carrinho!');
-                }
-            });
-        });
-
-
-      
-    </script>
+    <script src="js/index.js"></script>
 </body>
 </html>
