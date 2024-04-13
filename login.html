@@ -1,36 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <link rel="stylesheet" text="text/css" href="styles.css">
-
+  <link rel="stylesheet" text="text/css" href="css/login.css">
+  <script src="js/login.js"></script>
 </head>
 <body>
-  <form id="loginForm" onsubmit="return validateForm()">
-    <input type="text" id="username" placeholder="Usuário">
-    <input type="password" id="password" placeholder="Senha">
-    <button type="submit">Login</button>
-  </form>
+  <fieldset>
+    <legend><b>Login:</b></legend>
+      <br>
+      <form id="loginForm" onsubmit="return validateForm()">
+        <input type="text" id="username" placeholder="Usuário">
+        <input type="password" id="password" placeholder="Senha">
+        <button type="submit">Login</button>
+      </form>
+      <br>
+      <p>Ainda não tem cadastro?<a href="form.html">Clique aqui.</a></p>
+  </fieldset>
 
-  <script>
-    function validateForm() {
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-
-      // Aqui você pode adicionar lógica para validar o nome de usuário e senha.
-      // Por exemplo, você pode compará-los com valores armazenados em um banco de dados.
-
-      if (username === "client" && password === "client") {
-        alert("Login bem-sucedido!");
-        window.location.href = "order.html"; // Redireciona para admin.html
-        return false; // Impede o envio do formulário padrão
-      } else {
-        alert("Nome de usuário ou senha incorretos.");
-        return false;
-      }
-    }
-  </script>
 </body>
 </html>

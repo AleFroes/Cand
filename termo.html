@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termos de Serviço e Política de Privacidade</title>
+</head>
+<body>
+  <h1>Termos de Serviço e Política de Privacidade</h1>
+  
+  <h2>Termo de Aceite</h2>
+  <p>
+    Eu, abaixo assinado, concordo com os Termos de Serviço e Política de Privacidade e Uso de Dados da Confeitaria.
+  </p>
+  
+   <h2>Termos de Serviço</h2>
+  <p>
+    Bem-vindo aos nossos Termos de Serviço! Estes termos descrevem os direitos e responsabilidades ao utilizar os nossos serviços.
+  </p>
+  <p>
+    <b>1. Uso dos Serviços:</b> Ao utilizar os nossos serviços, você concorda em cumprir estes termos e todas as leis e regulamentos aplicáveis. Você é responsável por todas as atividades realizadas através da sua conta.
+  </p>
+  <p>
+    <b>2. Conteúdo do Usuário:</b> Você é o único responsável por qualquer conteúdo que você envie, publique ou exiba nos nossos serviços. Não toleramos conteúdo ilegal, ofensivo ou que viole os direitos de terceiros.
+  </p>
+  <p>
+    <b>3. Propriedade Intelectual:</b> Todos os direitos de propriedade intelectual dos nossos serviços e conteúdo pertencem a nós ou aos nossos licenciadores. Você não pode usar nosso conteúdo sem permissão expressa.
+  </p>
+  <p>
+    <b>4. Limitação de Responsabilidade:</b> Não nos responsabilizamos por danos indiretos, incidentais, especiais ou consequenciais decorrentes do uso ou impossibilidade de uso dos nossos serviços.
+  </p>
+  <p>
+    <b>5. Privacidade:</b> Respeitamos a sua privacidade e protegemos as suas informações pessoais de acordo com nossa Política de Privacidade. Ao utilizar nossos serviços, você concorda com a coleta e uso de suas informações conforme descrito na política.
+  </p>
+  <p>
+    <b>6. Alterações nos Termos:</b> Reservamo-nos o direito de modificar ou atualizar estes termos a qualquer momento. Recomendamos que você revise regularmente os termos para estar ciente de quaisquer alterações.
+  </p>
+  <p>
+    Ao utilizar nossos serviços, você concorda em cumprir estes termos. Se você não concorda com estes termos, por favor, não utilize nossos serviços. Se tiver dúvidas sobre estes termos, entre em contato conosco.
+  </p>
+
+  <h2>Política de Privacidade e Uso de Dados</h2>
+  <p>
+    A sua privacidade é uma prioridade para nós. Esta Política de Privacidade descreve como coletamos, usamos, protegemos e compartilhamos as suas informações pessoais quando você utiliza os nossos serviços.
+  </p>
+  <p>
+    <b>Informações Coletadas:</b> Podemos coletar diversas informações pessoais, como nome, endereço de e-mail, endereço IP, dados de localização e informações de pagamento, dependendo dos serviços que você utiliza.
+  </p>
+  <p>
+    <b>Uso das Informações:</b> Utilizamos as informações coletadas para fornecer e melhorar os nossos serviços, personalizar a sua experiência, processar transações, responder a solicitações de suporte e enviar comunicações relevantes.
+  </p>
+  <p>
+    <b>Proteção das Informações:</b> Adotamos medidas de segurança técnicas e organizacionais para proteger as suas informações contra acesso não autorizado, uso indevido ou divulgação.
+  </p>
+  <p>
+    <b>Compartilhamento de Informações:</b> Não compartilhamos as suas informações pessoais com terceiros, exceto quando necessário para prestação dos serviços ou quando exigido por lei.
+  </p>
+  <p>
+    <b>Cookies e Tecnologias Semelhantes:</b> Podemos utilizar cookies e outras tecnologias semelhantes para melhorar a sua experiência de navegação e coletar informações sobre o uso dos nossos serviços.
+  </p>
+  <p>
+    <b>Seus Direitos:</b> Você possui direitos em relação às suas informações pessoais, incluindo o direito de acessar, corrigir, atualizar ou excluir os seus dados.
+  </p>
+  <p>
+    <b>Alterações na Política:</b> Reservamo-nos o direito de atualizar esta Política de Privacidade periodicamente. Recomendamos que você revise regularmente este documento para estar ciente de quaisquer alterações.
+  </p>
+  <p>
+    Ao utilizar os nossos serviços, você concorda com o processamento das suas informações pessoais de acordo com esta Política de Privacidade. Se tiver dúvidas ou preocupações sobre esta Política ou sobre o tratamento dos seus dados, entre em contato conosco.
+  </p>
+
+  <form action="processar_cadastro.php" method="post">
+    <input type="checkbox" id="aceitar_termos" name="aceitar_termos">
+    <label for="aceitar_termos">Eu li e concordo com os <a href="termos_e_privacidade.html" target="_blank">Termos de Serviço e Política de Privacidade</a></label><br><br>
+    <button type="submit" onclick="fecharPagina()">Concordo</button>
+  </form>
+   <script>
+   function fecharJanela() {
+      window.opener.document.getElementById('aceitar_termos').checked = true;
+      window.close();
+    }
+  </script>
+</body>
+</html>

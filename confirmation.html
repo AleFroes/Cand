@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmação de Pedido</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/payment.css">
 </head>
 <body>
     <header>
@@ -20,13 +20,6 @@
         </section>
     </main>
 
-    <script>
-        var urlParams = new URLSearchParams(window.location.search);
-        var nome = urlParams.get('nome');
-        var data_entrega = urlParams.get('data_entrega');
-        document.getElementById('nome').innerText = nome;
-        document.getElementById('data_entrega').innerText = data_entrega;
-        // Adicione o código para os outros campos do formulário, se necessário
-    </script>
+<script src="js/confirmation.js"></script>
 </body>
 </html>

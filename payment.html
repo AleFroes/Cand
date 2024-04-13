@@ -12,218 +12,9 @@
     <!-- Adicionando biblioteca jQuery UI -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- Adicionando folha de estilos personalizada -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="css/payment.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url(cake.jpg);
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        header {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        section {
-            margin-bottom: 40px;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-        }
-
-        section:hover {
-            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        section h2 {
-            color: #333;
-        }
-
-        form label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        form input[type="text"],
-        form input[type="email"],
-        form textarea,
-        form select,
-        form button,
-        form input[type="number"],
-        form input[type="date"],
-        form input[type="time"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: none;
-        }
-
-        form button {
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        form button:hover {
-            background-color: #0056b3;
-        }
-
-
-        /* Adicionei estilos para tornar o botão do chatbot mais visível e acessível */
-        #chatbot-button {
-            position: fixed;
-            bottom: 8px;
-            right: 20px;
-            background-color: green;
-            color: darkblue;
-            padding: 8px 15px;
-            border-radius: 2.5px;
-            border: none;
-            cursor: pointer;
-            z-index: 9999;
-            transition: background-color 0.3s ease;
-            font-size: 12px;
-        }
-
-        #chatbot-button img {
-            width: 20px;
-            margin-right: 5px;
-            background-color: green;
-        }
-
-        #chatbot-button:hover {
-            background-color: lightgray;
-        }
-
-        /* Estilos para o QR code */
-        #pix-data {
-            position: absolute;
-            top: 50%;
-            right: 50px;
-            transform: translateY(-50%);
-        }
-
-        #gerar-qrcode {
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-        }
-
-        #qrcode {
-            display: none;
-            margin: 20px auto;
-            position: absolute;
-            top: 50%;
-            right: 100px;
-            transform: translateY(-50%);
-        }
-        /* Estilos para telas pequenas */
-        @media screen and (max-width: 768px) {
-            header {
-                padding: 10px;
-            }
-
-            header h1 {
-                font-size: 24px;
-            }
-
-            main {
-                padding: 10px;
-            }
-
-            section {
-                padding: 15px;
-            }
-
-            form input[type="text"],
-            form input[type="email"],
-            form textarea,
-            form select,
-            form button,
-            form input[type="number"],
-            form input[type="date"],
-            form input[type="time"] {
-                padding: 8px;
-            }
-        }
-
-        /* Estilos para telas médias */
-        @media screen and (min-width: 769px) and (max-width: 1024px) {
-            header {
-                padding: 15px;
-            }
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            main {
-                padding: 15px;
-            }
-
-            section {
-                padding: 20px;
-            }
-
-            form input[type="text"],
-            form input[type="email"],
-            form textarea,
-            form select,
-            form button,
-            form input[type="number"],
-            form input[type="date"],
-            form input[type="time"] {
-                padding: 10px;
-            }
-        }
-
-        /* Estilos para telas grandes */
-        @media screen and (min-width: 1025px) {
-            header {
-                padding: 20px;
-            }
-
-            header h1 {
-                font-size: 32px;
-            }
-
-            main {
-                padding: 20px;
-            }
-
-            section {
-                padding: 30px;
-            }
-
-            form input[type="text"],
-            form input[type="email"],
-            form textarea,
-            form select,
-            form button,
-            form input[type="number"],
-            form input[type="date"],
-            form input[type="time"] {
-                padding: 12px;
-            }
-        }
+  
     </style>
 </head>
 
@@ -233,23 +24,31 @@
     </header>
 
     <main>
+      <div>
         <section id="pedido">
-            <h2>Detalhes do Pedido</h2>
-            <p>Nome: <span id="nome"></span></p>
-            <p>Sobrenome: <span id="sobrenome"></span></p>
+          <fieldset>
+            <h2>Dados do cliente</h2>
+            <p>Nome Social: <span id="nome_social"></span></p>
+            <p>Tel: <span id="tel"></span></p>
             <p>Endereço: <span id="endereco"></span></p>
             <p>Número: <span id="numero"></span></p>
-            <p>Tel: <span id="tel"></span></p>
+            <p>Bairro: <span id="bairro"></span></p>
+            <p>Cidade: <span id="cidade"></span></p>
+            <p>Estado: <span id="estado"></span></p>
+          </fieldset>
+            <h2>Detalhes do Pedido</h2>
             <p>Tipo: <span id="tipo"></span></p>
             <p>Massa: <span id="massa"></span></p>
             <p>Recheio: <span id="recheio"></span></p>
-            <p>Decoração: <span id="decoracao"></span></p>
             <p>Peso: <span id="peso"></span></p>
-            <p>Mensagem: <span id="mensagem"></span></p>
+            <p>Decoração: <span id="decoracao"></span></p>
             <p>Data da Entrega: <span id="data_entrega"></span></p>
             <p>Hora da Entrega: <span id="hora_entrega"></span></p>
-            <h3><p>Total do pedido: R$ <span id="total"></span></p></h3>
         </section>
+        <section>
+            <h3><p>Total do pedido: R$ <span id="valor_total"></span></p></h3>
+        </section>
+      </div>
     </main>
     <br>
     <section>
@@ -306,132 +105,7 @@
 
  
 
-    <!-- Scripts -->
-    <script>
-        var urlParams = new URLSearchParams(window.location.search);
-        var nome = urlParams.get('nome');
-        var sobrenome = urlParams.get('sobrenome');
-        var endereco = urlParams.get('endereco');
-        var numero = urlParams.get('numero');
-        var tel = urlParams.get('tel');
-        var tipo = urlParams.get('tipo');
-        var massa = urlParams.get('massa');
-        var recheio = urlParams.get('recheio');
-        var decoracao = urlParams.get('decoracao');
-        var mensagem = urlParams.get('mensagem');
-        var data_entrega = urlParams.get('data_entrega');
-        var hora_entrega = urlParams.get('hora_entrega');
-        document.getElementById('nome').innerText = nome;
-        document.getElementById('sobrenome').innerText = sobrenome;
-        document.getElementById('endereco').innerText = endereco;
-        document.getElementById('numero').innerText = numero;
-        document.getElementById('tel').innerText = tel;
-        document.getElementById('tipo').innerText = tipo;
-        document.getElementById('massa').innerText = massa;
-        document.getElementById('recheio').innerText = recheio;
-        document.getElementById('decoracao').innerText = decoracao;
-        document.getElementById('mensagem').innerText = mensagem;
-        document.getElementById('data_entrega').innerText = data_entrega;
-        document.getElementById('hora_entrega').innerText = hora_entrega;
-  
-  
-     
-        function atualizarValor() {
-        // Obtém o select
-        var select = document.getElementById("tipo");
-        // Obtém o valor selecionado
-        var selectedOption = select.options[select.selectedIndex].value;
-        // Divide o valor selecionado para obter apenas o preço
-        var preco = selectedOption.split(',')[1];
-        // Atualiza o valor no input
-        document.getElementById("tipo_valor").value = "R$ " + preco;
-        }
-        // Chama a função para que o valor inicial seja exibido corretamente
-        atualizarValor();
-  
-  
-        // Função para calcular o total do pedido
-        function calcularTotal() {
-            var tipo = parseFloat(document.getElementById('tipo').value.split(',')[1]);
-            var massa = parseFloat(document.getElementById('massa').value);
-            var recheio = parseFloat(document.getElementById('recheio').value);
-            var decoracao = parseFloat(document.getElementById('decoracao_valor_label').innerText.split(' ')[1]);
-            var peso = parseFloat(document.getElementById('peso').value);
-            var total = tipo + massa + recheio + decoracao + peso;
-            document.getElementById('total').value = 'R$ ' + total.toFixed(2);
-        }
-
-        function processPayment() {
-    const valor = document.getElementById('valor').value;
-    const numeroCartao = document.getElementById('numeroCartao').value;
-    const validadeCartao = document.getElementById('validadeCartao').value;
-    const cvv = document.getElementById('cvv').value;
-
-    fetch('/pagamentos', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                valor,
-                cartao: {
-                    numero: numeroCartao,
-                    validade: validadeCartao,
-                    cvv
-                }
-            })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao processar pagamento');
-            }
-            return response.json();
-        })
-        .then(data => {
-            document.getElementById('mensagem').innerHTML = `<p>${data.mensagem}</p>`;
-        })
-        .catch(error => {
-            console.error('Erro ao processar pagamento:', error.message);
-            alert('Erro ao processar pagamento. Por favor, tente novamente.');
-        });
-}
-
-
-        // Função para alternar entre os formulários de pagamento
-        $('input[name="pagamento"]').change(function() {
-            var selectedValue = $(this).val();
-            if (selectedValue === 'pix') {
-                $('#pix-form').show();
-            } else {
-                $('#pix-form').hide();
-            }
-        });
-
-        // Função para gerar QR Code com a chave PIX
-        function gerarQRCode(chavePix) {
-            var qrCodeDiv = document.getElementById('qrcode');
-
-            // Limpa qualquer conteúdo anterior
-            qrCodeDiv.innerHTML = '';
-
-            // Cria o QR Code com a chave PIX
-            new QRCode(qrCodeDiv, {
-                text: chavePix,
-                width: 200,
-                height: 200
-            });
-        }
-
-        // Adiciona um evento de clique ao botão para gerar o QR Code
-        var botaoGerarQRCode = document.getElementById('gerar-qrcode');
-        botaoGerarQRCode.addEventListener('click', function() {
-            // Substitua 'sua-chave-pix' pela chave PIX a ser usada
-            var chavePix = 'sua-chave-pix';
-            gerarQRCode(chavePix);
-        });
-
-       
-    </script>
+<script src="js/scripts.js"></script>
 </body>
 
 </html>
