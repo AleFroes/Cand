@@ -1,5 +1,5 @@
-      //order.html
-               function atualizarValor() {
+
+        function atualizarValor() {
             // Obtém o select
             var select = document.getElementById("tipo");
             // Obtém o valor selecionado
@@ -17,8 +17,8 @@
             var tipo = parseFloat(document.getElementById('tipo').value.split(',')[1]);
             var massa = parseFloat(document.getElementById('massa').value);
             var recheio = parseFloat(document.getElementById('recheio').value);
-            var decoracao = parseFloat(document.getElementById('decoracao_valor_label').innerText.split(' ')[1]);
             var peso = parseFloat(document.getElementById('peso').value);
+            var decoracao = parseFloat(document.getElementById('decoracao_valor_label').innerText.split(' ')[1]);
             var total = tipo + massa + recheio + decoracao + peso;
             document.getElementById('total').value = 'R$ ' + total.toFixed(2);
         }
@@ -33,7 +33,7 @@
         var hora_entrega = document.getElementById('hora_entrega').value;
         var mensagem = document.getElementById('mensagem').value;
 
-        if (tipo === "" || massa === "" || recheio === "" || decoracao === "" || peso === "" || data_entrega === "" || hora_entrega === "" || mensagem === "") {
+        if (tipo === "" || massa === "" || recheio === "" || decoracao === "" || peso === "" || data_entrega === "" || hora_entrega === "" ) {
             alert("Por favor, preencha todos os campos do formulário antes de prosseguir.");
         } else {
             window.location.href = "payment.html";

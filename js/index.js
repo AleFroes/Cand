@@ -22,19 +22,21 @@
             document.getElementById('criatividade-explanation').style.display = 'none';
         });
 
-        $(document).ready(function() {
-            $('.carousel img').click(function() {
-                var type = $(this).data('type');
-                var mass = $(this).data('mass');
-                var filling = $(this).data('filling');
-                var decoration = $(this).data('decoration');
-                
-                var confirmation = confirm('Você gosta do ' + type + '?\n\nDetalhes:\n- Massa: ' + mass + '\n- Recheio: ' + filling + '\n- Decoração: ' + decoration + '\n\nClique em "OK" para adicionar ao carrinho.');
-                
-                if (confirmation) {
-                    alert('O ' + type + ' foi adicionado ao carrinho!');
-                }
-            });
-        });
+  
+        slider(document.getElementById("slideshow"), [
+      ["img/cake1.jpg", "Hot Wheels"],
+      ["img/cake2.jpg", "Borboletas"],
+      ["img/cake3.jpg", "Rosas"],
+      ["img/cake4.jpg", "Futebol"],
+      ["img/cake5.jpg", "Borboletas Roxas"],
+      ["img/cake6.jpg", "Studious Girl"],
+      ["img/cake7.jpg", "Palmeiras"],
+      ["img/cake8.jpg", "Barbie"],
+      ["img/cake9.jpg", "Docinho (Meninas Superpoderosas)"],
+      ["img/cake10.jpg", "Toy Story"],
+      ["img/cake11.jpg", "Torre de Flores"],
+      ["img/cake12.jpg", "Meu Ursinho"]
+    ]);
+
 
 

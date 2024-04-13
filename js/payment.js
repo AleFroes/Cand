@@ -1,4 +1,4 @@
-        //payment.html
+
         var urlParams = new URLSearchParams(window.location.search);
         var nome = urlParams.get('nome');
         var sobrenome = urlParams.get('sobrenome');
