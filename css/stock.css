@@ -1,10 +1,9 @@
-//stock.html
 
       body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, fuchsia, turquoise);
+            background: linear-gradient(to right, lightgray, lightblue);
             background-size: cover;
             background-position: center;
             position: relative;
@@ -87,9 +86,7 @@
             text-align: center;
         }
 
-        th {
-            background-color: #f2f2f2;
-        }
+
   
         /* Estilo para o botão "Editar" */
 .btn-edit {
@@ -130,7 +127,7 @@
             padding: 10px;
             border-radius: 5px;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 100px;
         }
 
         /* Estilos para telas pequenas */

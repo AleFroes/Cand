@@ -3,7 +3,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, fuchsia, turquoise);
+            background: linear-gradient(to bottom, fuchsia, aqua);
             background-size: cover;
             background-position: center;
             position: relative;
@@ -19,17 +19,9 @@
             margin: 0;
         }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
+        
 
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        nav ul li a {
+        a {
             text-decoration: none;
             color: #333;
         }

@@ -1,8 +1,8 @@
-//sales.html
+
 
   body {
         font-family: Arial, sans-serif;
-        background: linear-gradient(to bottom, fuchsia, turquoise);
+        background: linear-gradient(to bottom, lightgray, lightblue);
         margin: 20px;
     }
 
@@ -46,3 +46,13 @@
         margin-right: 10px;
     }
 
+      #total-sales {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff6600;
+            background-color: #ffeecc;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+        }
