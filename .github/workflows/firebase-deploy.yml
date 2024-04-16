@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2.6.3
+      uses: actions/checkout@v3.5.0
 
     - name: Install Firebase CLI
       run: npm install -g firebase-tools
