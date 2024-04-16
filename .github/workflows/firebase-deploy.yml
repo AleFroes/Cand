@@ -1,4 +1,4 @@
-tôname: Deploy to Firebase Hosting
+name: Deploy to Firebase Hosting
 
 on:
   push:
