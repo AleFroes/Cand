@@ -1,4 +1,4 @@
-name: Deploy to Firebase Hosting
+tôname: Deploy to Firebase Hosting
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3.5.0
+        uses: actions/checkout@v4.1.0
 
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
