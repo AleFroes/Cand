@@ -43,13 +43,35 @@
         form label {
             display: block;
             margin-bottom: 10px;
+          padding: 10px 20px;
+
+  border-radius: 10px;
+
+  border: none;
+
+          
+
         }
+         select,
+         input {
+
+  padding: 10px 20px;
+
+  border-radius: 10px;
+
+  border: none;
+
+  background-color: #f1f1f1;
+
+}
+
+
+        
 
         form input[type="text"],
         form input[type="email"],
-        form textarea,
         form button {
-            width: 100%;
+            width: 80%;
             padding: 10px;
             margin-bottom: 20px;
             border-radius: 5px;
@@ -60,7 +82,35 @@
             background-color: #007bff;
             color: #fff;
             cursor: pointer;
-        }
+            padding: 10px;
+
+  align-self: center;
+
+  width: 160px;
+
+  border-radius: 30px;
+
+  /* background-color: #3393c1; */
+
+  background-image: linear-gradient(#256a8a, #3393c1);
+
+  border: solid 1px #256a8a;
+
+  border-right-width: 4px;
+
+  border-bottom-width: 4px;
+
+  font-size: 16px;
+
+  color: white;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+}
+
+        
 
         form button:hover {
             background-color: #0056b3;
