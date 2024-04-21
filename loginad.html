@@ -3,21 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Acesso Restrito</title>
   <link rel="stylesheet" text="text/css" href="css/loginad.css">
   <script src="js/loginad.js"></script>
 </head>
-<body>
-  <fieldset>
-    <legend><b>Restrito</b></legend>
+  <body>
+
+    <form id="login" onsubmit="return validateForm()">
+
+      <div class="titulo">
+
+        <h1>Acesso Restrito - Faça seu login</h1>
+
+        <div class="barra-horizontal"></div>
+
+      </div>
+
+
+
+      <div class="campo-input">
+
+        <label for="username">Seu usuário*</label>
+
+        <input type="username" id="username" />
+
+      </div>
+
+
+
+      <div class="campo-input">
+
+        <label for="password">Sua senha*</label>
+
+        <input type="password" id="password" />
+
+      </div>
+
+
+
+      <div class="lembrar-me">
+
+        <input type="checkbox" />
+
+        <p>Lembrar-me</p>
+
+      </div>
+
+
+
+      <button type="submit">Entrar</button>
+
+
+
+      <p class="esqueceu-senha">
+
+        Esqueceu sua senha?
+
+        <a href="restore.html">Clique aqui!</a>
+
+      </p>
+
       <br>
-      <form id="loginAdmin" onsubmit="return validateForm()">
-        <input type="text" id="username" placeholder="Usuário">
-        <input type="password" id="password" placeholder="Senha">
-        <button type="submit">Login</button>
-      </form>
-      <br>
-  </fieldset>
+      
+    </form>
+
 
 </body>
 </html>
