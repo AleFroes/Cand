@@ -1,70 +1,79 @@
-        //form.html
-      function buscarEndereco() {
-            var cep = document.getElementById('cep').value.replace(/\D/g, '');
+$(document).ready(function() {
+    $('#enviar-btn').click(function(event) {
+        event.preventDefault(); // Evita o envio do formulário para recarregar a página
 
-            $.getJSON('https://api.allorigins.win/get?url=https://viacep.com.br/ws/' + cep + '/json/', function(data) {
-                var response = JSON.parse(data.contents);
-                if (!response.erro) {
-                    document.getElementById('endereco').value = response.logradouro;
-                    document.getElementById('bairro').value = response.bairro;
-                    document.getElementById('cidade').value = response.localidade;
-                    document.getElementById('estado').value = response.uf;
-                } else {
-                    alert('CEP não encontrado.');
-                }
-            });
+        // Validar o checkbox de aceitar termos quando o formulário for enviado
+        var checkboxValido = validarCheckbox();
+
+        if (!checkboxValido) {
+            return;
         }
 
+        // Obter os valores dos campos do formulário
+        var nome = $('#nome').val();
+        var sobrenome = $('#sobrenome').val();
+        var nome_social = $('#nome_social').val();
+        var cpf = $('#cpf').val();
+        var genero = $('#genero').val();
+        var data_nasc = $('#data_nasc').val();
+        var tel = $('#tel').val();
+        var email = $('#email').val();
+        var cep = $('#cep').val();
+        var endereco = $('#endereco').val();
+        var numero = $('#numero').val();
+        var complemento = $('#complemento').val();
+        var bairro = $('#bairro').val();
+        var cidade = $('#cidade').val();
+        var estado = $('#estado').val();
 
-        $(document).ready(function() {
-            $('.form-control').on('change', function() {
-                if ($(this).val()) {
-                    $(this).addClass('filled');
-                } else {
-                    $(this).removeClass('filled');
-                }
-            });
-        });
+        // Verificar se todos os campos obrigatórios estão preenchidos
+        if (!nome || !sobrenome || !nome_social || !cpf || !genero || !data_nasc || !tel || !email || !cep || !endereco || !numero || !complemento || !bairro || !cidade || !estado) {
+            alert('Por favor, preencha todos os campos do formulário.');
+            return;
+        }
 
-     
-
-
-
-
-        function enviarDados() {
+        // Criar objeto com os dados do usuário
         var userData = {
-        nome: document.getElementById('nome').value,
-        sobrenome: document.getElementById('sobrenome').value,
-        nome_social: document.getElementById('nome_social').value,
-        cpf: document.getElementById('cpf').value,
-            genero: document.getElementById('genero').value,
-        data_nasc: document.getElementById('data_nasc').value,
-        tel: document.getElementById('tel').value,
-        email: document.getElementById('email').value,
-        cep: document.getElementById('cep').value,
-        endereco: document.getElementById('endereco').value,
-        numero: document.getElementById('numero').value,
-        bairro: document.getElementById('bairro').value,
-        cidade: document.getElementById('cidade').value,
-        estado: document.getElementById('estado').value,
-        password: document.getElementById('password').value
-    };
+            nome: nome,
+            sobrenome: sobrenome,
+            nome_social: nome_social,
+            cpf: cpf,
+            genero: genero,
+            data_nasc: data_nasc,
+            tel: tel,
+            email: email,
+            cep: cep,
+            endereco: endereco,
+            numero: numero,
+            complemento: complemento,
+            bairro: bairro,
+            cidade: cidade,
+            estado: estado
+        };
 
-    fetch('http://localhost:3000/users', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Dados enviados com sucesso:', data);
-        alert('Dados enviados com sucesso!');
-    })
-    .catch(error => {
-        console.error('Erro ao enviar dados:', error);
-        alert('Erro ao enviar dados. Tente novamente mais tarde.');
+        // Enviar os dados para o servidor Node.js via AJAX
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/enviar-dados',
+            contentType: 'application/json',
+            data: JSON.stringify(userData),
+            success: function(response) {
+                alert('Dados enviados com sucesso!');
+                // Redirecionar para outra página após o envio dos dados, se necessário
+                window.location.href = 'order.html';
+            },
+            error: function(xhr, status, error) {
+                alert('Erro ao enviar dados: ' + error);
+            }
+        });
     });
-}
 
+    function validarCheckbox() {
+        var checkbox = $('#aceitar_termos');
+        if (!checkbox.prop('checked')) {
+            alert('Por favor, marque o checkbox para aceitar os termos de serviço e política de privacidade.');
+            return false;
+        }
+        return true;
+    }
+});
