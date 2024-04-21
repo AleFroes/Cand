@@ -6,6 +6,9 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="css/form.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/cep.js"></script>
 </head>
 <body>
 
@@ -21,23 +24,19 @@
             <br>
             <form id="userData">
                 <div>
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
+                <input type="text" id="nome" name="nome" placeholder="Nome*">    
                 </div>
                 <div>
-                    <label for="sobrenome">Sobrenome:</label>
-                    <input type="text" id="sobrenome" name="sobrenome" required>
+                <input type="text" id="sobrenome" name="sobrenome" placeholder="Sobrenome*">    
                 </div>
                 <div>
-                    <label for="nome_social">Nome Social:</label>
-                    <input type="text" id="nome_social" name="nome_social" required>
+                <input type="text" id="nome_social" name="nome_social" placeholder="Nome Social">    
                 </div>
                 <div>
-                    <label for="cpf">CPF:</label>
-                    <input type="number" id="cpf" name="cpf" required>
-                </div>
+                <input type="text" id="cpf" name="cpf" placeholder="CPF*">    
+                </div><br>
                 <div>
-                  <label for="genero">Identidade de Gênero:</label>
+                  <label for="genero">Identidade de Gênero*</label>
                   <select id="genero" name="genero">
                        <option value="mulher_cisgenero">Mulher Cisgênero</option>
                        <option value="mulher_transgenero">Mulher Transgênero</option>
@@ -52,73 +51,54 @@
                        <option value="genero_neutro">Gênero Neutro</option>
                        <option value="nao_dizer">Prefiro não dizer</option>
                    </select>
-               </div>
+                </div><br>
                 <div>
-                    <label for="data_nasc">Data de Nascimento:</label>
+                    <label for="data_nasc">Data de Nascimento*</label>
                     <input type="date" id="data_nasc" name="data_nasc" required>
+                </div><br>
+                <div>
+                <input type="tel" id="tel" name="tel" placeholder="Telefone*">    
+                </div><br>
+                <div>
+                <input type="email" id="email" name="email" placeholder="Email*">    
                 </div>
                 <div>
-                    <label for="tel">Telefone:</label>
-                    <input type="tel" id="tel" name="tel" required>
+                   <input type="text" id="cep" name="cep" placeholder="Cep*" oninput="buscarEnderecoPorCEP()">
                 </div>
                 <div>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                   <input type="text" id="endereco" name="endereco" placeholder="Endereço*">
                 </div>
                 <div>
-                    <label for="cep">CEP:</label>
-                    <input type="text" id="cep" name="cep" required>
-                    <button type="button" onclick="buscarEndereco()">Buscar Endereço</button>
+                <input type="text" id="numero" name="numero" placeholder="Numero*">    
                 </div>
                 <div>
-                    <label for="endereco">Endereço:</label>
-                    <input type="text" id="endereco" name="endereco" readonly>
+                <input type="text" id="complemento" name="complemento" placeholder="Complemento*">    
                 </div>
                 <div>
-                    <label for="numero">Número/Complemento:</label>
-                    <input type="text" id="numero" name="numero" required>
+                <input type="text" id="bairro" name="bairro" placeholder="Bairro*">
                 </div>
                 <div>
-                    <label for="bairro">Bairro:</label>
-                    <input type="text" id="bairro" name="bairro" readonly>
+                <input type="text" id="cidade" name="cidade" placeholder="Cidade*">
                 </div>
                 <div>
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" id="cidade" name="cidade" readonly>
-                </div>
-                <div>
-                    <label for="estado">Estado:</label>
-                    <input type="text" id="estado" name="estado" readonly>
+                <input type="text" id="estado" name="estado" placeholder="Estado*">
                 </div>
                 <br><br>
+                <p>Crie a senha para acesso aos serviços</p>
                 <div>
-                     <label for="password">Senha:</label>
+                     <label for="password">Senha*</label>
                      <input type="password" id="password" name="password" required>
                 </div>
                 <br><br>
                 <input type="checkbox" id="aceitar_termos" name="aceitar_termos">
                 <label for="aceitar_termos">Eu li e concordo com os <a href="termo.html" target="_blank">Termos de Serviço e Política de Privacidade</a></label><br><br>
                 <br>
-                <button type="button" onclick="enviarDados()">Enviar Dados</button>
+                <button type="button" id="enviar-btn" href="ordwr.html">Enviar Dados</button>
             </form>
         </section>
     </main>
-    <script src="js/form.js"></script>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-     function validarCheckbox() {
-      var checkbox = document.getElementById('aceitar_termos');
-      if (!checkbox.checked) {
-        alert('Por favor, marque o checkbox para aceitar os termos de serviço e política de privacidade.');
-        return false;
-      }
-      return true;
-    }
 
-    function fecharJanela() {
-      document.getElementById('aceitar_termos').checked = true;
-    }
-
-</script>
 </body>
 </html>
