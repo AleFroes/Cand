@@ -1,52 +1,189 @@
+* {
 
-         body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, fuchsia, aqua);
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    form {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 300px;
-    }
-    fieldset {
-      background-color: lightgray;
-    }
-    legend {
-      padding: 10px 150px;
-      background: linear-gradient(to bottom, darkgray, lightgray);
-    }
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      box-sizing: border-box;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+
+
+body {
+
+  font-family: Arial, sans-serif;
+
+  color: #404040;
+
+  /* flex container */
+
+  display: flex;
+
+  height: 100vh;
+
+  /* viewport height */
+
+  background: linear-gradient(to bottom, fuchsia, aqua);
+
+  justify-content: center;
+
+  align-items: center;
+  background-size: cover;
+
+  background-position: 50%;
+
+  padding: 20px;
+
+}
+
+
+
+form {
+
+  /* flex child do body*/
+
+  background-color: white;
+
+  padding: 50px;
+
+  border-radius: 30px;
+
+
+
+  /* flex container */
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+
+}
+
+
+
+h1 {
+
+  font-size: 24px;
+
+}
+
+
+
+button {
+
+  padding: 10px;
+
+  align-self: center;
+
+  width: 160px;
+
+  border-radius: 30px;
+
+  /* background-color: #3393c1; */
+
+  background-image: linear-gradient(#256a8a, #3393c1);
+
+  border: solid 1px #256a8a;
+
+  border-right-width: 4px;
+
+  border-bottom-width: 4px;
+
+  font-size: 16px;
+
+  color: white;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+}
+
+
+
+input {
+
+  padding: 10px 20px;
+
+  border-radius: 10px;
+
+  border: none;
+
+  background-color: #f1f1f1;
+
+}
+
+
+
+a {
+
+  color: #009dff;
+
+}
+
+
+
+.barra-horizontal {
+
+  background: linear-gradient(to right, fuchsia, aqua);
+
+  height: 5px;
+
+  width: 210px;
+
+}
+
+
+
+.campo-input {
+
+  /* flex container */
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+}
+
+
+
+.lembrar-me {
+
+  /* flex container */
+
+  display: flex;
+
+  gap: 5px;
+
+}
+
+
+
+.titulo {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+}
+
+
+
+.esqueceu-senha {
+
+  text-align: center;
+
+}
+
+
+
+
     /* Estilos para telas pequenas */
 @media screen and (max-width: 768px) {
     header {
@@ -55,10 +192,6 @@
 
     header h1 {
         font-size: 24px;
-    }
-
-    nav ul li {
-        margin-right: 10px;
     }
 
     main {
@@ -90,10 +223,6 @@
         font-size: 28px;
     }
 
-    nav ul li {
-        margin-right: 15px;
-    }
-
     main {
         padding: 15px;
     }
@@ -123,10 +252,6 @@
         font-size: 32px;
     }
 
-    nav ul li {
-        margin-right: 20px;
-    }
-
     main {
         padding: 20px;
     }
@@ -147,3 +272,4 @@
 }
 
 
+         
