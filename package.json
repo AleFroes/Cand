@@ -10,7 +10,6 @@
   "copy-files": "cp -r /* public/"
 },
 
-
 "dependencies": {
     "express": "^4.17.1"
 }
