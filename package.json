@@ -8,10 +8,10 @@
     "copyimages": "node ./scripts/copy-imgs.js",
     "prebuild": "npm run copyimages",
     "build": "npm run copy-files && next build",
-    "copy-files": "cp -r src/* public/"
+    "copy-files": "cp -r src/* public/",
     "postbuild": "next-sitemap",
     "preexport": "npm run build",
     "export": "next export",
-
     "start": "node server.js"
-  },
+  }
+}
