@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Conectando ao MongoDB (substitua "minha_base_de_dados" pelo seu URL do MongoDB)
-mongoose.connect('MONGO_URI');
+mongoose.connect('${MONGO_URI}');
 
 // Definindo o esquema do MongoDB para os usuários
 const usuarioSchema = new mongoose.Schema({
