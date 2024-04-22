@@ -1,7 +1,4 @@
 "scripts": {
-  
-    "build": "npm run copy-files && next build",
-    "copy-files": "cp -r src/* public/"
 
     "precopyimages": "tsc ./scripts/copy-imgs.ts --esModuleInterop",
     "copyimages": "node ./scripts/copy-imgs.js",
