@@ -1,14 +1,18 @@
 "scripts": {
-  "precopyimages": "tsc ./s",
-  "copyimages": "node ./scripts/copy-imgs.js",
-  "prebuild": "npm run copyimages",
-  "build": "next build",
-  "postbuild": "next-sitemap",
-  "preexport": "npm run build",
-  "export": "next export",
-  "start": "node server.js",
-  "copy-files": "cp -r /* public/"
-},
+  
+    "build": "npm run copy-files && next build",
+    "copy-files": "cp -r src/* public/"
+
+    "precopyimages": "tsc ./scripts/copy-imgs.ts --esModuleInterop",
+    "copyimages": "node ./scripts/copy-imgs.js",
+    "prebuild": "npm run copyimages",
+    "build": "next build",
+    "postbuild": "next-sitemap",
+    "preexport": "npm run build",
+    "export": "next export",
+  
+    "start": "node server.js"
+  },
 
 "dependencies": {
     "express": "^4.17.1"
