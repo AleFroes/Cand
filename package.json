@@ -1,19 +1,14 @@
-{
-  "name": "meu-projeto-html",
-  "version": "1.0.0",
-  "description": "Um projeto HTML simples usando Node.js",
-  "main": "server.js",
-  "scripts": {
-    "precopyimages": "tsc ./scripts/copy-imgs.ts --esModuleInterop",
-    "copyimages": "node ./scripts/copy-imgs.js",
-    "prebuild": "npm run copyimages",
-    "build": "next build",
-    "postbuild": "next-sitemap",
-    "preexport": "npm run build",
-    "export": "next export",
-  
-    "start": "node server.js"
-  },
+"scripts": {
+  "precopyimages": "tsc ./scripts/copy-imgs.ts --esModuleInterop",
+  "copyimages": "node ./scripts/copy-imgs.js",
+  "prebuild": "npm run copyimages",
+  "build": "next build",
+  "postbuild": "next-sitemap",
+  "preexport": "npm run build",
+  "export": "next export",
+  "start": "node server.js",
+  "copy-files": "cp -r /* public/"
+},
   "dependencies": {
     "express": "^4.17.1"
   }
