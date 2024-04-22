@@ -9,6 +9,8 @@
   "start": "node server.js",
   "copy-files": "cp -r /* public/"
 },
-  "dependencies": {
+
+
+"dependencies": {
     "express": "^4.17.1"
 }
