@@ -1,5 +1,5 @@
 "scripts": {
-  "precopyimages": "tsc ./scripts/copy-imgs.ts --esModuleInterop",
+  "precopyimages": "tsc ./s",
   "copyimages": "node ./scripts/copy-imgs.js",
   "prebuild": "npm run copyimages",
   "build": "next build",
