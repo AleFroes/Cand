@@ -1,54 +1,110 @@
 /* (A) WHOLE PAGE */
+
 body {
+
   display: flex;
+
   padding: 0; margin: 0;
+
   min-height: 100vh;
+
+  background-color: gray;
 }
+
 #sideC { display: none; }
 
+
+
 /* (B) BIG SCREEN : 2-COLUMN LAYOUT */
+
 #side { width: 150px; }
+
 #main { flex-grow: 1; }
+
 #sideL { display: none; }
 
+
+
 /* (C) SMALL SCREEN */
+
 @media screen and (max-width: 768px) {
+
   /* (C1) HIDDEN SIDEBAR */
+
   #side {
-    width: 0; visibility: hidden; opacity: 0;
-    transition: all 0.3s;
+
+    width: 0; visibility: hidden; opacity: 1;
+
+    transition: all 0.2s;
+
   }
+
+
 
   /* (C2) SHOW SIDEBAR WHEN CHECKED */
+
   #sideL { display: inline-block; }
+
   #sideC:checked ~ #side {
-    width: 150px; visibility: visible; opacity: 1;
+
+   height: 100%; width: 200px; visibility: visible; opacity: 1;
+
   }
+
 }
+
+
 
 /* (X) COSMETICS */
+
 /* (X1) WHOLE PAGE */
+
 * {
+
   font-family: Arial, Helvetica, sans-serif;
+
   box-sizing: border-box;
+
 }
+
+
 
 /* (X2) SIDEBAR */
+
 #side {
+
   color: black;
+
   background: lightgray;
-}
-#side a {
-  display: block;
-  width: 100%;
-  padding: 15px 10px;
+
+  border-radius: 20px;
 }
 
-/* (X3) MAIN */
-#sideL {
-  padding: 10px;
-  font-size: 24px;
-  color: #fff; background: gray;
-  cursor: pointer;
+#side a {
+
+  display: block;
+
+  width: 100%;
+
+  padding: 10px 5px;
+
 }
+
+
+
+/* (X3) MAIN */
+
+#sideL {
+
+  padding: 20px;
+
+  font-size: 24px;
+
+  color: whitesmoke; background: gray;
+
+  cursor: pointer;
+
+  border-radius: 60px;
+}
+
 #main { padding: 10px; }
