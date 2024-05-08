@@ -19,7 +19,6 @@
             margin: 0;
         }
 
-        
 
         a {
             text-decoration: none;
@@ -34,7 +33,7 @@
             margin-bottom: 40px;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 20px;
             box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease;
         }
@@ -52,13 +51,6 @@
             margin-bottom: 10px;
         }
 
-        form input[type="text"],
-        form input[type="email"],
-        form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
 
         form button {
             padding: 10px 20px;
@@ -71,6 +63,27 @@
         form button:hover {
             background-color: #0056b3;
         }
+
+         footer img {
+    width: 60px;
+    height: 60px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+
+footer a {
+    margin: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin-top: 2px;
+}
+         
 
         /* Estilos para telas pequenas */
         @media screen and (max-width: 768px) {
@@ -252,4 +265,3 @@
             display: block;
         }
 
-                    
