@@ -6,6 +6,10 @@
       "use": "@now/static"
     },
     {
+      "src": "*.json",
+      "use": "@now/static"
+    },
+    {
       "src": "img/**/*",
       "use": "@now/static"
     },
