@@ -76,7 +76,7 @@ function escolherPeso(peso) {
 
 
 // Configure suas credenciais de API
-const accessToken = '${API_MPAGO}';
+const accessToken = '<%= process.env.API_MPAGO %>';
 
 console.log('Inicializando Mercado Pago...');
 
