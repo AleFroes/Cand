@@ -1,120 +1,219 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedido</title>
-    <!-- Adicionando folha de estilos do jQuery UI -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Adicionando biblioteca jQuery UI -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/order.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja de Bolos Personalizados - Monte o seu bolo</title>
+  <link rel="stylesheet" type="text/css" href="./css/order.css">
+  <script src="js/ecommerce.js"></script>
+  <script src="js/carrossel.js"></script>
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+ 
 </head>
-
 <body>
-    <header>
-        <h1>Pedido (Faça seu Pedido)</h1>
-    </header>
+  
+  <nav>
+    <span><h1>Loja de Bolos Personalizados - Monte o seu bolo</h1></span>
+    <div class="barra-horizontal"></div>
+  </nav>
+  
 
-    <main>
-        <section id="pedidos">
-            <h2>Faça seu Pedido</h2>
-            <form id="order" action="payment.html" method="post">
-
-                <!-- Opções de escolha do bolo -->
-                <h2>Vamos montar o bolo?</h2>
-              
-                <label for="tipo">Selecione o tipo de bolo:</label>
-                <div class="container">
-                    <select id="tipo" style="display: inline-block; margin-left: 0px;" onchange="calcularTotal()">
-                        <option value="bolo_andar,10">Bolo de Andar (Somente 2 andares) (R$10,00)</option>
-                        <option value="kit_1,150">Kit 1 (1,5kg + 25 brigadeiros + topo personalizado) (R$150,00)</option>
-                        <option value="kit_2,250">Kit 2 (2,5kg + 25 brigadeiros + 25 beijinhos + topo personalizado) (R$250,00)</option>
-                        <option value="tradicional,70">Tradicional (R$70,00)</option>
-                    </select>
-                    <label for="tipo_valor" style="display: inline-block; margin-right: 0px;">Valor:</label>
-                    <input type="number" id="tipo_valor" name="tipo_valor" readonly>
-                </div>
-
-                <!-- Escolha da massa -->
-               <label for="tipo">Escolha o tipo de massa:</label>
-               <div class="container">
-                <select id="massa" style="display: inline-block; margin-left: 0px;" onchange="calcularTotal()">
-                    <option value="baunilha">Baunilha (Massa Branca)</option>
-                    <option value="chocolate">Chocolate</option>
-                </select>
-                <label for="massa_valor" style="display: inline-block; margin-left: 0px;">Valor:</label>
-                <input type="number" id="massa_valor" name="massa_valor" readonly>
-                </div>
-                <!-- Escolha do recheio -->
-                <label for="tipo">Selecione o recheio:</label>
-                <div class="container">
-                <select id="recheio" style="display: inline-block; margin-left: 0px;" onchange="calcularTotal()">
-                    <option value="abacaxi">Abacaxi</option>
-                    <option value="alpino">Alpino</option>
-                    <option value="brigadeiro">Brigadeiro 50% Cacau</option>
-                    <option value="brigadeiro_branco">Brigadeiro Branco</option>
-                    <option value="doce_leite">Doce de Leite</option>
-                    <option value="maracuja">Maracujá (Brigadeiro)</option>
-                    <option value="ninho_morango">Ninho com Morango</option>
-                    <option value="ninho_nutella">Ninho com Nutella</option>
-                    <option value="prestigio">Prestígio</option>
-                    <option value="surpresa_uva">Surpresa de Uva</option>
-                </select>
-                <label for="recheio_valor" style="display: inline-block; margin-left: 0px;" >Valor:</label>
-                <input type="number" id="recheio_valor" name="recheio_valor" readonly>
-                </div>
-              
-                <label for="tipo">Selecione o peso do seu bolo:</label>
-                <div class="container">
-                <select id="peso" style="display: inline-block; margin-left: 0px;" onchange="calcularTotal()">
-                    <option value="2Kg">2 Kg</option>
-                    <option value="2.5Kg">2,5 Kg</option>
-                    <option value="3Kg">3 Kg</option>
-                    <option value="3.5">3,5 Kg</option>
-                    <option value="4Kg">4 Kg</option>
-                    <option value="4.5Kg">4,5 Kg</option>
-                    <option value="5Kg">5 Kg</option>
-                    <option value="5.5Kg">5,5 Kg</option>
-                    <option value="6Kg">6 Kg</option>
-                    <option value="6.5Kg">6,5 Kg</option>
-                </select>
-                <label for="peso_valor" style="display: inline-block; margin-left: 0px;">Valor:</label>
-                <input type="number" id="peso_valor" name="peso_valor" readonly>
-                </div>
-                <!-- Digitar a decoração -->
-                <label for="decoracao">Digite qual decoração ou tema você quer:</label>
-                <input type="text" id="decoracao" name="decoracao" onchange="calcularTotal()" required>
-                <br><br>
-                
-               
-
-                <!-- Seleção da data e hora da entrega -->
-                <h2>Qual o dia e hora da entrega? (Selecione abaixo)</h2>
-                <label for="data_entrega">Data da Entrega:</label>
-                <input type="date" id="data_entrega" name="data_entrega" onchange="calcularTotal()" required>
-                <label for="hora_entrega">Hora da Entrega:</label>
-                <input type="time" id="hora_entrega" name="hora_entrega" onchange="calcularTotal()" required>
-
-                <!-- Exibição do total do pedido -->
-                <label for="valor_total" style="display: inline-block; margin-left: 0px;">Valor do Pedido: R$</label>
-                <input type="number" id="valor_total" name="valor_total" readonly>
-                  
-                <!-- Botão para revisar pedido e pagamento -->
-                <button onclick="validarPedido()" type="button">Seguir para Pagamento</button>
-
-            </form>
-        </section>
-    </main>
-
-    <!-- Botão para pedidos via chatbot -->
-    <button id="chatbot-button">
-        <img src="img/chatbot.gif" alt="Chatbot Icon"> <b>Pedir via Chatbot</b>
+  <br><br>
+  <br><br>
+     <button id="chatbot-button">
+       <img src="img/chatbot.gif" alt="Chatbot Icon"> <b>Pedir via Chatbot</b>
     </button>
+  <br>
+    
+    <div class="carrossel">
+    <h2 class="tipo">Escolha o tipo de bolo</h2>
+    <div id="tipo-carousel" class="produtos-container">
+      <div class="produtos-wrapper">
+        <div class="produto">
+          <h2>Tradicional</h2>
+          <p class="preco">Preço: R$ 12,00</p>
+          <button class="botao-adicionar tipo" onclick="adicionarAoCarrinho(this, 'Tipo - Tradicional', 12.00, 1, 'tipo')">Adicionar ao Carrinho</button>
+        </div>
 
-    <script src="order.js"></script> 
+        <div class="produto">
+          <h2>Bolo de 2 Andares</h2>
+          <p class="preco">Preço: R$ 30,00</p>
+          <button class="botao-adicionar tipo" onclick="adicionarAoCarrinho(this, 'Tipo - Bolo de 2 Andares', 30.00, 1, 'tipo')">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="produto">
+          <h2>Bolo de 3 Andares</h2>
+          <p class="preco">Preço: R$ 45,00</p>
+          <button class="botao-adicionar tipo" onclick="adicionarAoCarrinho(this, 'Tipo - Bolo de 3 Andares', 45.00, 1, 'tipo')">Adicionar ao Carrinho</button>
+        </div>
+        
+      </div>   
+    </div>
+  </div>
+  
+  <br><br>
+
+    <div class="carrossel">
+    <h2 class="massa">Escolha o tipo de massa</h2>
+    <div id="massa-carousel" class="produtos-container">
+      <div class="produtos-wrapper">
+        <div class="produto">
+          <h2>Baunilha</h2>
+          <p class="preco">Preço: R$ 21,00</p>
+          <button class="botao-adicionar massa" onclick="adicionarAoCarrinho(this, 'Massa - Baunilha', 21.00, 1, 'massa')">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="produto">
+          <h2>Chocolate</h2>
+          <img src="img/chocolate.jpg">
+          <p class="preco">Preço: R$ 26,00</p>
+          <button class="botao-adicionar massa" onclick="adicionarAoCarrinho(this, 'Massa - Chocolate', 26.00, 1, 'massa')">Adicionar ao Carrinho</button>
+        </div>
+      </div>   
+    </div>
+  </div>
+  
+   <br><br>
+
+    <div class="carrossel">
+    <h2 class="recheio">Escolha o recheio do seu bolo</h2>
+    <div id="recheio-carousel" class="produtos-container">
+      <div class="produtos-wrapper">
+        <div class="produto">
+          <h2>Abacaxi</h2>
+          <img src="img/abacaxi.jpg">
+          <p class="preco">Preço: R$ 35,00</p>
+          <button class="botao-adicionar recheio" onclick="adicionarAoCarrinho(this, 'Recheio - Abacaxi', 35.00, 1, 'recheio')">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="produto">
+          <h2>Brigadeiro Branco</h2>
+          <img src="img/choc_branco.jpg">
+          <p class="preco">Preço: R$ 33,00</p>
+          <button class="botao-adicionar recheio" onclick="adicionarAoCarrinho(this, 'Recheio - Brigadeiro Branco', 33.00, 1, 'recheio')">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="produto">
+          <h2>Brigadeiro 50% Cacau</h2>
+          <img src="img/chocolate.jpg">
+          <p class="preco">Preço: R$ 32,00</p>
+          <button class="botao-adicionar recheio" onclick="adicionarAoCarrinho(this, 'Recheio - Brigadeiro 50% Cacau', 32.00, 1, 'recheio')">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="produto">
+          <h2>Doce de Leite</h2>
+          <img src="img/doce_leite.jpg">
+          <p class="preco">Preço: R$ 31,00</p>
+          <button class="botao-adicionar recheio" onclick="adicionarAoCarrinho(this, 'Recheio - Brigadeiro 50% Cacau', 32.00, 1, 'recheio')">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="produto">
+          <h2>Prestígio</h2>
+          <img src="img/coco_choc.png">
+          <p class="preco">Preço: R$ 32,00</p>
+          <button class="botao-adicionar recheio" onclick="adicionarAoCarrinho(this, 'Recheio - Brigadeiro 50% Cacau', 32.00, 1, 'recheio')">Adicionar ao Carrinho</button>
+        </div>
+       
+        
+        <div class="produto">
+          <h2>Surpresa de Uva</h2>
+          <img src="img/uva.png">
+          <p class="preco">Preço: R$ 36,00</p>
+          <button class="botao-adicionar recheio" onclick="adicionarAoCarrinho(this, 'Recheio - Surpresa de Uva', 36.00, 1, 'recheio')">Adicionar ao Carrinho</button>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+      
+      <br><br>
+      
+  <div class="carrossel">
+    <h2 class="peso">Escolha o peso (tamanho)</h2>
+    <div id="peso-carousel" class="produtos-container">
+      <div class="produtos-wrapper">
+        <div class="produto peso" name="peso">
+          <h2>1,0 Kg</h2>
+          <p>Descrição: 10 cm de diâmetro, entre 13 a 15 fatias.</p>
+          <p class="preco">Preço: R$ (Subtotal x 1.0)<span id="peso2"></span></p>
+          <button class="botao-adicionar peso" onclick="escolherPeso(1.0)">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="produto peso" name="peso">
+          <h2>2,0 Kg</h2>
+          <p>Descrição: 18 cm de diâmetro, entre 17 a 22 fatias.</p>
+          <p class="preco">Preço: R$ (Subtotal x 2.0)<span id="peso2"></span></p>
+          <button class="botao-adicionar peso" onclick="escolherPeso(2.0)">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="produto peso" name="peso">
+          <h2>2,5 Kg</h2>
+          <p>Descrição: 20 cm de diametro, entre 25 a 30 fatias.</p>
+          <p class="peso">Preço: R$ (Subtotal x 2.5)<span id="peso1"></span></p>
+          <button class="botao-adicionar peso" onclick="escolherPeso(2.5)">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="produto peso" name="peso">
+          <h2>3,5 Kg</h2>
+          <p>Descrição: 25 cm de diâmetro, entre 35 a 40 fatias.</p>
+          <p class="preco">Preço: R$ (Subtotal x 3.5)<span id="peso2"></span></p>
+          <button class="botao-adicionar peso" onclick="escolherPeso(3.5)">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="produto peso" name="peso">
+          <h2>4,5 Kg</h2>
+          <p>Descrição: 35 cm de diâmetro, entre 45 a 50 fatias.</p>
+          <p class="peso">Preço: R$ (Subtotal x 4.5)<span id="peso3"></span></p>
+          <button class="botao-adicionar peso" onclick="escolherPeso(4.5)">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <b><h2 for="decoracao">Digite qual decoração ou tema você quer:</h2>
+  <input type="text" id="decoracao" name="decoracao" placeholder="exemplo: Flores / Batman / Toy Story " required></b>
+  <br><br>
+  <h2>Qual o dia e hora da entrega? (Selecione abaixo)</h2>
+     <div>
+        <label for="data_entrega" style="display: inline-block; margin-right: 10px;">Data da Entrega:</label>
+        <input type="date" id="data_entrega" name="data_entrega" onchange="calcularTotal()" required>
+       <br>
+        <label for="hora_entrega" style="display: inline-block; margin-left: 10px;">Hora da Entrega:</label>
+        <input type="time" id="hora_entrega" name="hora_entrega" onchange="calcularTotal()" required>
+     </div>
+  <br><br>
+                
+  
+                  
+  
+  
+  <table id="itens-carrinho">
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Preço</th>
+      <th>Quantidade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Os itens do carrinho serão adicionados aqui dinamicamente -->
+  </tbody>
+</table>
+    <b><p id="subtotal">Subtotal: R$ 0,00</p>
+    <br>
+    <p id="peso" name="peso" class="peso">Peso selecionado: x </p>
+    <br>
+    <p id="total">Total: R$ 0,00</p></b>
+    <br>
+    
+    <button id="checkout-btn" onclick="realizarPagamento()">Pagar com Mercado Pago</button>
+    <br>
+    
+    
+  </div>
+
 </body>
-
 </html>
+
+
