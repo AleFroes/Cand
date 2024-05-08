@@ -5,10 +5,10 @@ const morgan = require('morgan');
 
 const app = express();
 
-const username = process.env.MONGODB_USER;
-const password = process.env.MONGODB_PASS;
-const clusterUrl = process.env.MONGODB_URL;
-const databaseName = process.env.MONGODB_DATA;
+const username = process.env.MONGO_USER;
+const password = process.env.MONGO_PASS;
+const clusterUrl = process.env.MONGO_URL;
+const databaseName = process.env.MONGO_DATA;
 
 // Usando o middleware Morgan com o formato 'dev'
 app.use(morgan('dev'));
@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Conectando ao MongoDB (substitua "minha_base_de_dados" pelo seu URL do MongoDB)
-mongoose.connect('mongodb+srv://${MONGO_USER}:${MONGO_PASS}@${MONGO_URL}/?retryWrites=true&w=majority&appName=${MONGO_DATA}');
+mongoose.connect('mongodb+srv://${username}:${password}@${clusterUrl}/?retryWrites=true&w=majority&appName=${databaseName}');
 
 // Definindo o esquema do MongoDB para os usuários
 const usuarioSchema = new mongoose.Schema({
